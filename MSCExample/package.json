@@ -3,11 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "react-native start"
+    "preinstall": "cd .. && npm i",
+    "build": "rm -rf build && ../node_modules/.bin/tsc -p ./src",
+    "lint": "../node_modules/.bin/tslint -p ./src",
+    "watch": "npm run build -- --watch",
+    "reset:packager": "watchman watch-del-all && react-native start --reset-cache",
+    "run:android": "react-native run-android",
+    "clean:android": "cd android && ./gradlew clean",
+    "install:pods": "cd ios && pod install"
   },
   "dependencies": {
     "react": "16.8.6",
-    "react-native": "0.60.4"
+    "react-native": "0.60.4",
+    "react-native-multi-segmented-control": "file:.."
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

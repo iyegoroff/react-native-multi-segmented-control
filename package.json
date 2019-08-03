@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/iyegoroff/react-native-multi-segmented-control.git"
   },
-  "version": "0.0.0",
+  "version": "0.0.1",
   "peerDependencies": {
     "@babel/runtime": "*",
     "react": "*",
@@ -48,5 +48,8 @@
     "tslint.json",
     "*.md",
     "*.podspec"
-  ]
+  ],
+  "dependencies": {
+    "ts-tiny-invariant": "0.0.2"
+  }
 }

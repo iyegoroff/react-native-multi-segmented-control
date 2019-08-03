@@ -28,20 +28,7 @@ target 'MSCExample' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'MSCExampleTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  pod 'react-native-multi-segmented-control', :path => '../../'
 
   use_native_modules!
-end
-
-target 'MSCExample-tvOS' do
-  # Pods for MSCExample-tvOS
-
-  target 'MSCExample-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end

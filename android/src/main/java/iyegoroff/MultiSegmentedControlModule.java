@@ -17,6 +17,6 @@ public class MultiSegmentedControlModule extends ReactContextBaseJavaModule {
 
   @Override
   public String getName() {
-    return "RNMSCMultiSegmentedControl";
+    return "MSCMultiSegmentedControl";
   }
 }

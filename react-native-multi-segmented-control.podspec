@@ -1,4 +1,4 @@
-§require 'json'
+require 'json'
 
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.requires_arc     = true
 
   s.dependency 'React'
+  s.dependency 'MultiSelectSegmentedControl', '1.2.1'
 end
