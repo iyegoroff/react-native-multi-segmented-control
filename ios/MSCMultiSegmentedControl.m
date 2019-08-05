@@ -1,4 +1,5 @@
 #import "MSCMultiSegmentedControl.h"
+#import <React/RCTConvert.h>
 
 @interface MultiSelectSegmentedControl (Protected)
 
@@ -73,6 +74,14 @@
                 @"changedIndexSelected": @(selected)
                 });
   }
+}
+
+- (void)setBorderRadius:(float)borderRadius
+{
+  self.layer.cornerRadius = borderRadius;
+  self.layer.borderColor = self.tintColor.CGColor;
+  self.layer.borderWidth = 1.0f;
+  self.layer.masksToBounds = YES;
 }
 
 - (void)setValues:(NSArray<NSString *> *)values

@@ -10,9 +10,12 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import invariant from 'ts-tiny-invariant';
 import { MSCMultiSegmentedControl } from './native-component';
+import { styles } from './styles';
+import { View, StyleSheet } from 'react-native';
+import { DisabledOverlay } from './disabled-overlay';
+import { controlKey } from './control-key';
 export class MultiSegmentedControl extends React.PureComponent {
     render() {
         const _a = this.props, { values = [], selectedIndices = [], minSelected = 0, maxSelected = 0, enabled = true, style } = _a, restProps = __rest(_a, ["values", "selectedIndices", "minSelected", "maxSelected", "enabled", "style"]);
@@ -22,12 +25,11 @@ export class MultiSegmentedControl extends React.PureComponent {
             `equal to 'minSelected' (${minSelected})`);
         invariant(maxSelected === 0 || selectedIndices.length <= maxSelected, `length of 'selectedIndices' (${selectedIndices.length}) should be less or ` +
             `equal to 'maxSelected' (${maxSelected})`);
-        return (<MSCMultiSegmentedControl {...restProps} values={values} selectedIndices={selectedIndices} minSelected={minSelected} maxSelected={maxSelected} enabled={enabled} style={[styles.container, style]}/>);
+        const { borderRadius } = StyleSheet.flatten(style);
+        return (<View style={[styles.container, style]}>
+        <MSCMultiSegmentedControl {...restProps} key={controlKey(values)} values={values} selectedIndices={selectedIndices} minSelected={minSelected} maxSelected={maxSelected} enabled={enabled} style={styles.control} borderRadius={borderRadius}/>
+        {enabled ? undefined : <DisabledOverlay borderRadius={borderRadius}/>}
+      </View>);
     }
 }
-const styles = StyleSheet.create({
-    container: {
-        height: 28
-    }
-});
 //# sourceMappingURL=multi-segmented-control.js.map

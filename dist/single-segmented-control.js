@@ -10,9 +10,12 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import invariant from 'ts-tiny-invariant';
 import { MSCMultiSegmentedControl } from './native-component';
+import { styles } from './styles';
+import { View, StyleSheet } from 'react-native';
+import { controlKey } from './control-key';
+import { DisabledOverlay } from './disabled-overlay';
 export class SingleSegmentedControl extends React.PureComponent {
     render() {
         const _a = this.props, { values = [], minSelected = 0, enabled = true, selectedIndex, style } = _a, restProps = __rest(_a, ["values", "minSelected", "enabled", "selectedIndex", "style"]);
@@ -21,12 +24,11 @@ export class SingleSegmentedControl extends React.PureComponent {
             `equal to 'minSelected' (${minSelected})`);
         invariant(minSelected === 0 || selectedIndices.length >= minSelected, `length of 'selectedIndices' (${selectedIndices.length}) should be greater or ` +
             `equal to 'minSelected' (${minSelected})`);
-        return (<MSCMultiSegmentedControl {...restProps} values={values} minSelected={minSelected} isSingle={true} selectedIndices={selectedIndices} enabled={enabled} style={[styles.container, style]}/>);
+        const { borderRadius } = StyleSheet.flatten(style);
+        return (<View style={[styles.container, style]}>
+        <MSCMultiSegmentedControl {...restProps} values={values} key={controlKey(values)} minSelected={minSelected} isSingle={true} selectedIndices={selectedIndices} enabled={enabled} style={styles.control} borderRadius={borderRadius}/>
+        {enabled ? undefined : <DisabledOverlay borderRadius={borderRadius}/>}
+      </View>);
     }
 }
-const styles = StyleSheet.create({
-    container: {
-        height: 28
-    }
-});
 //# sourceMappingURL=single-segmented-control.js.map

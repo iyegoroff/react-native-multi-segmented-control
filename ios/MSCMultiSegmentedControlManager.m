@@ -20,5 +20,6 @@ RCT_EXPORT_VIEW_PROPERTY(hideSeparatorBetweenSelectedSegments, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(isSingle, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(maxSelected, NSUInteger)
 RCT_EXPORT_VIEW_PROPERTY(minSelected, NSUInteger)
+RCT_EXPORT_VIEW_PROPERTY(borderRadius, float)
 
 @end

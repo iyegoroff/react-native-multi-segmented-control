@@ -21,7 +21,7 @@ const onChange = (event) => {
 class App extends React.Component {
   state = {
     selectedIndices: [1],
-    items: ['Apple', 'Banana', 'Orange', 'Pear', 'Garlic']
+    items: ['dog', 'cat', 'fox', 'bee', 'zerg', 'pig']
   }
 
   componentDidMount() {
@@ -41,14 +41,16 @@ class App extends React.Component {
       <Fragment>
         <MultiSegmentedControl
           momentary={false}
-          tintColor={'red'}
+          // tintColor={'red'}
           style={styles.segmented}
           values={items}
           onChange={onChange}
           selectedIndices={selectedIndices}
           maxSelected={3}
           minSelected={1}
+          // enabled={false}
           hideSeparatorBetweenSelectedSegments={true}
+          // dividerColor={'green'}
         />
         <SingleSegmentedControl
           momentary={false}
@@ -58,6 +60,7 @@ class App extends React.Component {
           selectedIndex={2}
           onChange={onChange}
           minSelected={1}
+          dividerColor={'blue'}
         />
       </Fragment>
     );
@@ -66,9 +69,13 @@ class App extends React.Component {
 
 const styles = StyleSheet.create({
   segmented: {
-    height: 150,
+    // backgroundColor: '#0000ff80',
+    height: 55,
+    borderRadius: 20,
     marginHorizontal: 20,
-    marginTop: 50
+    marginTop: 50,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 

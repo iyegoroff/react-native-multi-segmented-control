@@ -17,6 +17,8 @@ export declare type NativeProps = ViewProps & {
     readonly isSingle?: boolean;
     readonly maxSelected?: number;
     readonly minSelected?: number;
+    readonly dividerColor?: string;
+    readonly borderRadius?: number;
 };
 export declare const MSCMultiSegmentedControl: React.ComponentClass<NativeProps>;
 export {};
