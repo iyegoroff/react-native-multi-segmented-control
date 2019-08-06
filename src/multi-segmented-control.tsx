@@ -10,6 +10,7 @@ type OmittedProps =
   | 'isSingle'
   | 'borderRadius'
   | 'backgroundColor'
+  | 'elevation'
 
 type MultiSegmentedControlProps = Omit<NativeProps, OmittedProps>
 
@@ -46,7 +47,12 @@ export class MultiSegmentedControl extends React.PureComponent<MultiSegmentedCon
       `equal to 'maxSelected' (${maxSelected})`
     )
 
-    const { borderRadius, backgroundColor, ...rest } = StyleSheet.flatten(style) || {} as ViewStyle
+    const {
+      borderRadius,
+      backgroundColor,
+      elevation,
+      ...rest
+    } = StyleSheet.flatten(style) || {} as ViewStyle
 
     return (
       <View style={[styles.container, rest]}>
@@ -63,6 +69,7 @@ export class MultiSegmentedControl extends React.PureComponent<MultiSegmentedCon
           backgroundColor={backgroundColor}
           textStyle={processTextStyle(textStyle)}
           selectedTextStyle={processTextStyle(selectedTextStyle)}
+          elevation={elevation}
         />
       </View>
     )

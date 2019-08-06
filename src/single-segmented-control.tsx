@@ -46,7 +46,12 @@ export class SingleSegmentedControl extends React.PureComponent<SingleSegmentedC
       `equal to 'minSelected' (${minSelected})`
     )
 
-    const { borderRadius, backgroundColor, ...rest } = StyleSheet.flatten(style) || {} as ViewStyle
+    const {
+      borderRadius,
+      backgroundColor,
+      elevation,
+      ...rest
+    } = StyleSheet.flatten(style) || {} as ViewStyle
 
     return (
       <View style={[styles.container, rest]}>
@@ -63,6 +68,7 @@ export class SingleSegmentedControl extends React.PureComponent<SingleSegmentedC
           backgroundColor={backgroundColor}
           textStyle={processTextStyle(textStyle)}
           selectedTextStyle={processTextStyle(selectedTextStyle)}
+          elevation={elevation}
         />
       </View>
     )

@@ -1,7 +1,6 @@
 package iyegoroff.multisegmentedcontrol;
 
 import android.graphics.Color;
-import android.os.Build;
 
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
@@ -80,5 +79,10 @@ public class MultiSegmentedControlManager extends ViewGroupManager<MultiSegmente
   @ReactProp(name = "selectedTextStyle")
   public void setSelectedTextStyle(MultiSegmentedControl view, ReadableMap selectedTextStyle) {
     view.setSelectedTextStyle(selectedTextStyle);
+  }
+
+  @ReactProp(name = "elevation")
+  public void setElevation(@Nonnull MultiSegmentedControl view, float elevation) {
+    view.setCardElevation(elevation);
   }
 }

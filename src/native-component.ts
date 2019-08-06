@@ -28,6 +28,7 @@ export type NativeProps = ViewProps & {
   readonly backgroundColor?: string
   readonly textStyle?: TextStyleRedux
   readonly selectedTextStyle?: TextStyleRedux
+  readonly elevation?: number
 }
 
 export const MSCMultiSegmentedControl: React.ComponentClass<NativeProps> = requireNativeComponent(

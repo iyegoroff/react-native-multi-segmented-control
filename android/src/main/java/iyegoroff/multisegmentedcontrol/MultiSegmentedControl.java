@@ -59,6 +59,7 @@ public class MultiSegmentedControl extends FrameLayout {
 
     mToggleButtonLayout = new ToggleButtonLayout(context);
     mToggleButtonLayout.setMultipleSelection(true);
+    mToggleButtonLayout.setCardElevation(0);
     mToggleButtonLayout.setLayoutParams(
       new LayoutParams(
         LayoutParams.MATCH_PARENT,
@@ -314,5 +315,11 @@ public class MultiSegmentedControl extends FrameLayout {
     if (mValuesAreSet) {
       updateToggleViews();
     }
+  }
+
+  public void setCardElevation(float cardElevation) {
+    float elevation = PixelUtil.toDIPFromPixel(cardElevation);
+    mToggleButtonLayout.setMaxCardElevation(elevation);
+    mToggleButtonLayout.setCardElevation(elevation);
   }
 }
