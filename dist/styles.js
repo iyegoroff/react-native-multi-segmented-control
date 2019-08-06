@@ -10,17 +10,11 @@ export const styles = StyleSheet.create({
         width: '100%',
         height: '100%'
     },
-    overlayWrap: {
-        position: 'absolute',
-        width: '100%',
-        height: '100%',
-        flexDirection: 'row'
-    },
-    overlay: {
-        backgroundColor: 'white',
-        opacity: 0.5,
-        flex: 1,
-        height: '100%'
-    }
+    background: Platform.select({
+        ios: {},
+        android: {
+            backgroundColor: undefined
+        }
+    })
 });
 //# sourceMappingURL=styles.js.map

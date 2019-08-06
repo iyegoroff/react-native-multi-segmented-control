@@ -21,24 +21,41 @@ const onChange = (event) => {
 class App extends React.Component {
   state = {
     selectedIndices: [1],
-    items: ['dog', 'cat', 'fox', 'bee', 'zerg', 'pig']
+    items: ['dog dog dog dog dog', 'cat', 'fox', 'bee', 'zerg', 'pig'],
+    enabled: true
   }
 
   componentDidMount() {
-    setTimeout(() => this.setState({
-      selectedIndices: [0, 2, 4]
-    }), 5000)
+    // setTimeout(() => this.setState({
+    //   selectedIndices: [0, 2, 4]
+    // }), 5000)
 
-    setTimeout(() => this.setState({
-      items: ['dog', 'cat', 'fox', 'bee', 'zerg', 'pig']
-    }), 10000)
+    // setTimeout(() => this.setState({
+    //   items: ['dog dog dog dog dog', 'cat', 'fox', 'bee', 'zerg', 'pig']
+    // }), 10000)
+
+    // setTimeout(() => {
+    //   this.setState({ enabled: false })
+
+    //   setTimeout(() => {
+    //     this.setState({ enabled: true })
+
+    //     setTimeout(() => {
+    //       this.setState({ enabled: false })
+
+    //       setTimeout(() => {
+    //         this.setState({ enabled: true })
+    //       }, 3000)
+    //     }, 3000)
+    //   }, 3000)
+    // }, 3000)
   }
 
   render() {
-    const { items, selectedIndices } = this.state
+    const { items, selectedIndices, enabled } = this.state
 
     return (
-      <Fragment>
+      <View style={styles.container}>
         <MultiSegmentedControl
           momentary={false}
           // tintColor={'red'}
@@ -48,30 +65,50 @@ class App extends React.Component {
           selectedIndices={selectedIndices}
           maxSelected={3}
           minSelected={1}
-          // enabled={false}
+          enabled={enabled}
           hideSeparatorBetweenSelectedSegments={true}
           // dividerColor={'green'}
+          // textStyle={{
+          //   fontWeight: 'normal',
+          //   fontSize: 12,
+          //   color: 'yellow',
+          //   fontFamily: 'Gagarin'
+          // }}
         />
         <SingleSegmentedControl
           momentary={false}
-          tintColor={'red'}
+          // tintColor={'red'}
           style={styles.segmented}
           values={items}
           selectedIndex={2}
           onChange={onChange}
           minSelected={1}
-          dividerColor={'blue'}
+          // dividerColor={'lightgray'}
+          textStyle={{
+            fontWeight: 'normal',
+            fontSize: 28,
+            color: 'yellow',
+            fontFamily: 'Gagarin'
+          }}
+          selectedTextStyle={{
+            fontSize: 24,
+            color: 'green',
+            fontFamily: 'Prisma'
+          }}
         />
-      </Fragment>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+
+  },
   segmented: {
-    // backgroundColor: '#0000ff80',
+    backgroundColor: '#0000ff80',
     height: 55,
-    borderRadius: 20,
+    borderRadius: 10,
     marginHorizontal: 20,
     marginTop: 50,
     justifyContent: 'center',

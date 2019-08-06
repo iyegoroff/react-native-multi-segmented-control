@@ -2,11 +2,16 @@ import React from 'react'
 import invariant from 'ts-tiny-invariant'
 import { NativeProps, MSCMultiSegmentedControl } from './native-component'
 import { styles } from './styles'
-import { View, StyleSheet } from 'react-native'
-import { DisabledOverlay } from './disabled-overlay'
+import { View, StyleSheet, ViewStyle } from 'react-native'
 import { controlKey } from './control-key'
+import { processTextStyle } from './process-text-style'
 
-type MultiSegmentedControlProps = Omit<NativeProps, 'isSingle' | 'borderRadius'>
+type OmittedProps =
+  | 'isSingle'
+  | 'borderRadius'
+  | 'backgroundColor'
+
+type MultiSegmentedControlProps = Omit<NativeProps, OmittedProps>
 
 export class MultiSegmentedControl extends React.PureComponent<MultiSegmentedControlProps> {
 
@@ -18,6 +23,8 @@ export class MultiSegmentedControl extends React.PureComponent<MultiSegmentedCon
       maxSelected = 0,
       enabled = true,
       style,
+      textStyle,
+      selectedTextStyle = textStyle,
       ...restProps
     } = this.props
 
@@ -39,10 +46,10 @@ export class MultiSegmentedControl extends React.PureComponent<MultiSegmentedCon
       `equal to 'maxSelected' (${maxSelected})`
     )
 
-    const { borderRadius } = StyleSheet.flatten(style)
+    const { borderRadius, backgroundColor, ...rest } = StyleSheet.flatten(style) || {} as ViewStyle
 
     return (
-      <View style={[styles.container, style]}>
+      <View style={[styles.container, rest]}>
         <MSCMultiSegmentedControl
           {...restProps}
           key={controlKey(values)}
@@ -53,8 +60,10 @@ export class MultiSegmentedControl extends React.PureComponent<MultiSegmentedCon
           enabled={enabled}
           style={styles.control}
           borderRadius={borderRadius}
+          backgroundColor={backgroundColor}
+          textStyle={processTextStyle(textStyle)}
+          selectedTextStyle={processTextStyle(selectedTextStyle)}
         />
-        {enabled ? undefined : <DisabledOverlay borderRadius={borderRadius} />}
       </View>
     )
   }

@@ -15,19 +15,18 @@ import { MSCMultiSegmentedControl } from './native-component';
 import { styles } from './styles';
 import { View, StyleSheet } from 'react-native';
 import { controlKey } from './control-key';
-import { DisabledOverlay } from './disabled-overlay';
+import { processTextStyle } from './process-text-style';
 export class SingleSegmentedControl extends React.PureComponent {
     render() {
-        const _a = this.props, { values = [], minSelected = 0, enabled = true, selectedIndex, style } = _a, restProps = __rest(_a, ["values", "minSelected", "enabled", "selectedIndex", "style"]);
+        const _a = this.props, { values = [], minSelected = 0, enabled = true, selectedIndex, style, textStyle, selectedTextStyle = textStyle } = _a, restProps = __rest(_a, ["values", "minSelected", "enabled", "selectedIndex", "style", "textStyle", "selectedTextStyle"]);
         const selectedIndices = selectedIndex === undefined ? [] : [selectedIndex];
         invariant(minSelected === 0 || values.length >= minSelected, `length of 'values' (${values.length}) should be greater or ` +
             `equal to 'minSelected' (${minSelected})`);
         invariant(minSelected === 0 || selectedIndices.length >= minSelected, `length of 'selectedIndices' (${selectedIndices.length}) should be greater or ` +
             `equal to 'minSelected' (${minSelected})`);
-        const { borderRadius } = StyleSheet.flatten(style);
-        return (<View style={[styles.container, style]}>
-        <MSCMultiSegmentedControl {...restProps} values={values} key={controlKey(values)} minSelected={minSelected} isSingle={true} selectedIndices={selectedIndices} enabled={enabled} style={styles.control} borderRadius={borderRadius}/>
-        {enabled ? undefined : <DisabledOverlay borderRadius={borderRadius}/>}
+        const _b = StyleSheet.flatten(style) || {}, { borderRadius, backgroundColor } = _b, rest = __rest(_b, ["borderRadius", "backgroundColor"]);
+        return (<View style={[styles.container, rest]}>
+        <MSCMultiSegmentedControl {...restProps} values={values} key={controlKey(values)} minSelected={minSelected} isSingle={true} selectedIndices={selectedIndices} enabled={enabled} style={styles.control} borderRadius={borderRadius} backgroundColor={backgroundColor} textStyle={processTextStyle(textStyle)} selectedTextStyle={processTextStyle(selectedTextStyle)}/>
       </View>);
     }
 }

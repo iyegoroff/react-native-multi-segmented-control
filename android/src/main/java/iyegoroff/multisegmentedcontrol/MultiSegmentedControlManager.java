@@ -1,8 +1,10 @@
 package iyegoroff.multisegmentedcontrol;
 
 import android.graphics.Color;
+import android.os.Build;
 
 import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
@@ -68,5 +70,15 @@ public class MultiSegmentedControlManager extends ViewGroupManager<MultiSegmente
   @ReactProp(name = "borderRadius")
   public void setBorderRadius(MultiSegmentedControl view, float borderRadius) {
     view.setBorderRadius(borderRadius);
+  }
+
+  @ReactProp(name = "textStyle")
+  public void setTextStyle(MultiSegmentedControl view, ReadableMap textStyle) {
+    view.setTextStyle(textStyle);
+  }
+
+  @ReactProp(name = "selectedTextStyle")
+  public void setSelectedTextStyle(MultiSegmentedControl view, ReadableMap selectedTextStyle) {
+    view.setSelectedTextStyle(selectedTextStyle);
   }
 }

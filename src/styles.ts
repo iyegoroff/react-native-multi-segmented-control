@@ -3,8 +3,7 @@ import { ViewStyle, StyleSheet, Platform } from 'react-native'
 type Styles = {
   readonly container: ViewStyle
   readonly control: ViewStyle
-  readonly overlayWrap: ViewStyle
-  readonly overlay: ViewStyle
+  readonly background: ViewStyle
 }
 
 export const styles = StyleSheet.create<Styles>({
@@ -18,16 +17,10 @@ export const styles = StyleSheet.create<Styles>({
     width: '100%',
     height: '100%'
   },
-  overlayWrap: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    flexDirection: 'row'
-  },
-  overlay: {
-    backgroundColor: 'white',
-    opacity: 0.5,
-    flex: 1,
-    height: '100%'
-  }
+  background: Platform.select<ViewStyle>({
+    ios: {},
+    android: {
+      backgroundColor: undefined
+    }
+  })
 })

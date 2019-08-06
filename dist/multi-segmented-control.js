@@ -14,21 +14,20 @@ import invariant from 'ts-tiny-invariant';
 import { MSCMultiSegmentedControl } from './native-component';
 import { styles } from './styles';
 import { View, StyleSheet } from 'react-native';
-import { DisabledOverlay } from './disabled-overlay';
 import { controlKey } from './control-key';
+import { processTextStyle } from './process-text-style';
 export class MultiSegmentedControl extends React.PureComponent {
     render() {
-        const _a = this.props, { values = [], selectedIndices = [], minSelected = 0, maxSelected = 0, enabled = true, style } = _a, restProps = __rest(_a, ["values", "selectedIndices", "minSelected", "maxSelected", "enabled", "style"]);
+        const _a = this.props, { values = [], selectedIndices = [], minSelected = 0, maxSelected = 0, enabled = true, style, textStyle, selectedTextStyle = textStyle } = _a, restProps = __rest(_a, ["values", "selectedIndices", "minSelected", "maxSelected", "enabled", "style", "textStyle", "selectedTextStyle"]);
         invariant(minSelected === 0 || values.length >= minSelected, `length of 'values' (${values.length}) should be greater or ` +
             `equal to 'minSelected' (${minSelected})`);
         invariant(minSelected === 0 || selectedIndices.length >= minSelected, `length of 'selectedIndices' (${selectedIndices.length}) should be greater or ` +
             `equal to 'minSelected' (${minSelected})`);
         invariant(maxSelected === 0 || selectedIndices.length <= maxSelected, `length of 'selectedIndices' (${selectedIndices.length}) should be less or ` +
             `equal to 'maxSelected' (${maxSelected})`);
-        const { borderRadius } = StyleSheet.flatten(style);
-        return (<View style={[styles.container, style]}>
-        <MSCMultiSegmentedControl {...restProps} key={controlKey(values)} values={values} selectedIndices={selectedIndices} minSelected={minSelected} maxSelected={maxSelected} enabled={enabled} style={styles.control} borderRadius={borderRadius}/>
-        {enabled ? undefined : <DisabledOverlay borderRadius={borderRadius}/>}
+        const _b = StyleSheet.flatten(style) || {}, { borderRadius, backgroundColor } = _b, rest = __rest(_b, ["borderRadius", "backgroundColor"]);
+        return (<View style={[styles.container, rest]}>
+        <MSCMultiSegmentedControl {...restProps} key={controlKey(values)} values={values} selectedIndices={selectedIndices} minSelected={minSelected} maxSelected={maxSelected} enabled={enabled} style={styles.control} borderRadius={borderRadius} backgroundColor={backgroundColor} textStyle={processTextStyle(textStyle)} selectedTextStyle={processTextStyle(selectedTextStyle)}/>
       </View>);
     }
 }

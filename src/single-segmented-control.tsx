@@ -2,9 +2,9 @@ import React from 'react'
 import invariant from 'ts-tiny-invariant'
 import { NativeProps, MSCMultiSegmentedControl } from './native-component'
 import { styles } from './styles'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, ViewStyle } from 'react-native'
 import { controlKey } from './control-key'
-import { DisabledOverlay } from './disabled-overlay'
+import { processTextStyle } from './process-text-style'
 
 type OmittedProps =
   | 'isSingle'
@@ -12,6 +12,7 @@ type OmittedProps =
   | 'hideSeparatorBetweenSelectedSegments'
   | 'maxSelected'
   | 'borderRadius'
+  | 'backgroundColor'
 
 type SingleSegmentedControlProps = Omit<NativeProps, OmittedProps> & {
   readonly selectedIndex?: number
@@ -26,6 +27,8 @@ export class SingleSegmentedControl extends React.PureComponent<SingleSegmentedC
       enabled = true,
       selectedIndex,
       style,
+      textStyle,
+      selectedTextStyle = textStyle,
       ...restProps
     } = this.props
 
@@ -43,10 +46,10 @@ export class SingleSegmentedControl extends React.PureComponent<SingleSegmentedC
       `equal to 'minSelected' (${minSelected})`
     )
 
-    const { borderRadius } = StyleSheet.flatten(style)
+    const { borderRadius, backgroundColor, ...rest } = StyleSheet.flatten(style) || {} as ViewStyle
 
     return (
-      <View style={[styles.container, style]}>
+      <View style={[styles.container, rest]}>
         <MSCMultiSegmentedControl
           {...restProps}
           values={values}
@@ -57,8 +60,10 @@ export class SingleSegmentedControl extends React.PureComponent<SingleSegmentedC
           enabled={enabled}
           style={styles.control}
           borderRadius={borderRadius}
+          backgroundColor={backgroundColor}
+          textStyle={processTextStyle(textStyle)}
+          selectedTextStyle={processTextStyle(selectedTextStyle)}
         />
-        {enabled ? undefined : <DisabledOverlay borderRadius={borderRadius} />}
       </View>
     )
   }
