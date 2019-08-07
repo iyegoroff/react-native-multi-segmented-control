@@ -21,7 +21,7 @@ const onChange = (event) => {
 class App extends React.Component {
   state = {
     selectedIndices: [1],
-    items: ['dog dog dog dog dog', 'cat', 'fox', 'bee', 'zerg', 'pig'],
+    items: ['dog', 'cat', 'Fox', 'bee', 'zerg', 'pig'],
     enabled: true
   }
 
@@ -31,7 +31,7 @@ class App extends React.Component {
     // }), 5000)
 
     // setTimeout(() => this.setState({
-    //   items: ['dog dog dog dog dog', 'cat', 'fox', 'bee', 'zerg', 'pig']
+    //   items: ['dog', 'cat', 'fox', 'bee', 'zerg', 'pig']
     // }), 10000)
 
     // setTimeout(() => {
@@ -68,16 +68,15 @@ class App extends React.Component {
           enabled={enabled}
           hideSeparatorBetweenSelectedSegments={true}
           // dividerColor={'green'}
-          // textStyle={{
-          //   fontWeight: 'normal',
-          //   fontSize: 12,
-          //   color: 'yellow',
-          //   fontFamily: 'Gagarin'
-          // }}
+          textStyle={{
+            fontWeight: 'normal',
+            fontSize: 12,
+            fontFamily: 'Gagarin'
+          }}
         />
         <SingleSegmentedControl
           momentary={false}
-          // tintColor={'red'}
+          tintColor={'red'}
           style={styles.segmented}
           values={items}
           selectedIndex={2}
@@ -92,8 +91,9 @@ class App extends React.Component {
           }}
           selectedTextStyle={{
             fontSize: 24,
+            fontWeight: 'bold',
             color: 'green',
-            fontFamily: 'Prisma'
+            // fontFamily: 'Prisma'
           }}
         />
       </View>
@@ -106,9 +106,10 @@ const styles = StyleSheet.create({
 
   },
   segmented: {
-    backgroundColor: '#0000ff80',
+    backgroundColor: '#0000ff60',
+    elevation: 10,
     height: 55,
-    borderRadius: 10,
+    borderRadius: 25,
     marginHorizontal: 20,
     marginTop: 50,
     justifyContent: 'center',

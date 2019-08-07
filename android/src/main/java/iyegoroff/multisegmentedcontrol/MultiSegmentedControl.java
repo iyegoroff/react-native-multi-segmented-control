@@ -59,7 +59,6 @@ public class MultiSegmentedControl extends FrameLayout {
 
     mToggleButtonLayout = new ToggleButtonLayout(context);
     mToggleButtonLayout.setMultipleSelection(true);
-    mToggleButtonLayout.setCardElevation(0);
     mToggleButtonLayout.setLayoutParams(
       new LayoutParams(
         LayoutParams.MATCH_PARENT,

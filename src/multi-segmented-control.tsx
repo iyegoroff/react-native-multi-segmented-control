@@ -5,6 +5,7 @@ import { styles } from './styles'
 import { View, StyleSheet, ViewStyle } from 'react-native'
 import { controlKey } from './control-key'
 import { processTextStyle } from './process-text-style'
+import { processBorderRadius } from './process-border-radius';
 
 type OmittedProps =
   | 'isSingle'
@@ -65,7 +66,7 @@ export class MultiSegmentedControl extends React.PureComponent<MultiSegmentedCon
           maxSelected={maxSelected}
           enabled={enabled}
           style={styles.control}
-          borderRadius={borderRadius}
+          borderRadius={processBorderRadius(borderRadius)}
           backgroundColor={backgroundColor}
           textStyle={processTextStyle(textStyle)}
           selectedTextStyle={processTextStyle(selectedTextStyle)}

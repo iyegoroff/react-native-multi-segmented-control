@@ -1,6 +1,12 @@
 #import "MSCMultiSegmentedControl.h"
 #import <React/RCTConvert.h>
 
+// source: https://stackoverflow.com/a/21036097/4134913
+#define ANDROID_COLOR(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 \
+                                         green:((c>>8)&0xFF)/255.0 \
+                                          blue:((c)&0xFF)/255.0 \
+                                         alpha:((c>>24)&0xFF)/255.0]
+
 @interface MultiSelectSegmentedControl (Protected)
 
 - (void)selectSegmentsOfSelectedIndexes;
@@ -14,6 +20,8 @@
   if ((self = [super initWithFrame:frame])) {
     _selectedIndices = [MSCMultiSegmentedControl indexSetToArray:self.selectedSegmentIndexes];
     self.delegate = self;
+    self.layer.cornerRadius = 4.0f;
+    self.clipsToBounds = YES;
     [self addObserver:self forKeyPath:@"bounds" options:0 context:nil];
   }
   return self;
@@ -76,14 +84,6 @@
   }
 }
 
-- (void)setBorderRadius:(float)borderRadius
-{
-  self.layer.cornerRadius = borderRadius;
-  self.layer.borderColor = self.tintColor.CGColor;
-  self.layer.borderWidth = 1.0f;
-  self.layer.masksToBounds = YES;
-}
-
 - (void)setValues:(NSArray<NSString *> *)values
 {
   _values = [values copy];
@@ -99,6 +99,47 @@
 {
   _selectedIndices = selectedIndices;
   self.selectedSegmentIndexes = [MSCMultiSegmentedControl arrayToIndexSet:_selectedIndices];
+}
+
+- (void)setTextStyle:(NSDictionary *)textStyle
+{
+  [self setTitleTextAttributes:[MSCMultiSegmentedControl textAttributes:textStyle]
+                      forState:UIControlStateNormal];
+}
+
+- (void)setSelectedTextStyle:(NSDictionary *)selectedTextStyle
+{
+  [self setTitleTextAttributes:[MSCMultiSegmentedControl textAttributes:selectedTextStyle]
+                      forState:UIControlStateSelected];
+}
+
++ (nonnull NSDictionary<NSAttributedStringKey,id> *)textAttributes:(NSDictionary *)style
+{
+  float fontSize = [style[@"fontSize"] floatValue] ?: 16.0f;
+  UIFont *font;
+  
+  if (style[@"fontFamily"] != nil) {
+    font = [UIFont fontWithName:style[@"fontFamily"] size:fontSize];
+    
+  } else if ([@"bold" isEqualToString:style[@"fontWeight"]]) {
+    font = [UIFont boldSystemFontOfSize:fontSize];
+    
+  } else if ([@"italic" isEqualToString:style[@"fontStyle"]]) {
+    font = [UIFont italicSystemFontOfSize:fontSize];
+    
+  } else {
+    font = [UIFont systemFontOfSize:fontSize];
+  }
+  
+  NSMutableDictionary<NSAttributedStringKey,id> *attrs = [NSMutableDictionary new];
+  
+  if (style[@"color"] != nil) {
+    [attrs setObject:ANDROID_COLOR([style[@"color"] intValue]) forKey:NSForegroundColorAttributeName];
+  }
+  
+  [attrs setObject:font forKey:NSFontAttributeName];
+  
+  return attrs;
 }
 
 + (nonnull NSArray<NSNumber *> *)indexSetToArray:(NSIndexSet *)set

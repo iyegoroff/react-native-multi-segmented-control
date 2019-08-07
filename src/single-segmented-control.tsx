@@ -5,6 +5,7 @@ import { styles } from './styles'
 import { View, StyleSheet, ViewStyle } from 'react-native'
 import { controlKey } from './control-key'
 import { processTextStyle } from './process-text-style'
+import { processBorderRadius } from './process-border-radius'
 
 type OmittedProps =
   | 'isSingle'
@@ -13,6 +14,7 @@ type OmittedProps =
   | 'maxSelected'
   | 'borderRadius'
   | 'backgroundColor'
+  | 'elevation'
 
 type SingleSegmentedControlProps = Omit<NativeProps, OmittedProps> & {
   readonly selectedIndex?: number
@@ -64,7 +66,7 @@ export class SingleSegmentedControl extends React.PureComponent<SingleSegmentedC
           selectedIndices={selectedIndices}
           enabled={enabled}
           style={styles.control}
-          borderRadius={borderRadius}
+          borderRadius={processBorderRadius(borderRadius)}
           backgroundColor={backgroundColor}
           textStyle={processTextStyle(textStyle)}
           selectedTextStyle={processTextStyle(selectedTextStyle)}

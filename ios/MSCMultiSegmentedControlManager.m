@@ -20,6 +20,8 @@ RCT_EXPORT_VIEW_PROPERTY(hideSeparatorBetweenSelectedSegments, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(isSingle, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(maxSelected, NSUInteger)
 RCT_EXPORT_VIEW_PROPERTY(minSelected, NSUInteger)
-RCT_EXPORT_VIEW_PROPERTY(borderRadius, float)
+RCT_EXPORT_VIEW_PROPERTY(backgroundColor, UIColor)
+RCT_EXPORT_VIEW_PROPERTY(textStyle, NSDictionary)
+RCT_EXPORT_VIEW_PROPERTY(selectedTextStyle, NSDictionary)
 
 @end
