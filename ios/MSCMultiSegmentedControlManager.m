@@ -1,22 +1,24 @@
-#import "MSCMultiSegmentedControlManager.h"
-#import "MSCMultiSegmentedControl.h"
+#import <React/RCTViewManager.h>
 
-@implementation MSCMultiSegmentedControlManager
+@interface RCT_EXTERN_MODULE(MSCMultiSegmentedControlManager, RCTViewManager)
 
-RCT_EXPORT_MODULE();
-
-- (UIView *)view
++ (BOOL)requiresMainQueueSetup
 {
-  return [[MSCMultiSegmentedControl alloc] init];
+  return YES;
+}
+
+- (dispatch_queue_t)methodQueue
+{
+  return dispatch_get_main_queue();
 }
 
 RCT_EXPORT_VIEW_PROPERTY(values, NSArray<NSString *>)
 RCT_EXPORT_VIEW_PROPERTY(selectedIndices, NSArray<NSNumber *>)
 RCT_EXPORT_VIEW_PROPERTY(tintColor, UIColor)
-RCT_EXPORT_VIEW_PROPERTY(momentary, BOOL)
+RCT_EXPORT_VIEW_PROPERTY(borderRadius, CGFloat)
 RCT_EXPORT_VIEW_PROPERTY(enabled, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(onChange, RCTBubblingEventBlock)
-RCT_EXPORT_VIEW_PROPERTY(hideSeparatorBetweenSelectedSegments, BOOL)
+RCT_EXPORT_VIEW_PROPERTY(hideDivider, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(isSingle, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(maxSelected, NSUInteger)
 RCT_EXPORT_VIEW_PROPERTY(minSelected, NSUInteger)

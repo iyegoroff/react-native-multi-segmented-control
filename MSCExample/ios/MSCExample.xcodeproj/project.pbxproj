@@ -11,14 +11,14 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		85A433E6BB3B4B738277D964 /* Prisma.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27EEDAC51DB14B7882C87E14 /* Prisma.ttf */; };
-		DE56B2EABAF8595F13EA6096 /* libPods-MSCExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8240D8B98FA3DE6A7E0009 /* libPods-MSCExample.a */; };
-		F1CA3995515E4237ACC2C04E /* Gagarin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE21729B001F4189B6262472 /* Gagarin.ttf */; };
+		2086E575FDC644CFA0F38F6A /* Gagarin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F7760B3E1A94192BE4F4191 /* Gagarin.ttf */; };
+		74317757230075E1001FE908 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74317756230075E1001FE908 /* test.swift */; };
+		9C0D27D2EB4341FBA4F65C69 /* Prisma.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AAE17A3868447E9A2181F9 /* Prisma.ttf */; };
+		BC5FF9B7E0F2424B223766E6 /* libPods-MSCExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA307BCDF7D115D61BA89F9B /* libPods-MSCExample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		0DEF304E5C5242B473B67D9E /* Pods-MSCExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSCExample.debug.xcconfig"; path = "Target Support Files/Pods-MSCExample/Pods-MSCExample.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* MSCExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSCExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MSCExample/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MSCExample/AppDelegate.m; sourceTree = "<group>"; };
@@ -26,10 +26,13 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MSCExample/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MSCExample/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MSCExample/main.m; sourceTree = "<group>"; };
-		27EEDAC51DB14B7882C87E14 /* Prisma.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Prisma.ttf; path = ../assets/fonts/Prisma.ttf; sourceTree = "<group>"; };
-		6B8240D8B98FA3DE6A7E0009 /* libPods-MSCExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MSCExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE21729B001F4189B6262472 /* Gagarin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Gagarin.ttf; path = ../assets/fonts/Gagarin.ttf; sourceTree = "<group>"; };
-		E5DEE2559A85720F0461E8AF /* Pods-MSCExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSCExample.release.xcconfig"; path = "Target Support Files/Pods-MSCExample/Pods-MSCExample.release.xcconfig"; sourceTree = "<group>"; };
+		52AAE17A3868447E9A2181F9 /* Prisma.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Prisma.ttf; path = ../assets/fonts/Prisma.ttf; sourceTree = "<group>"; };
+		5F7760B3E1A94192BE4F4191 /* Gagarin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Gagarin.ttf; path = ../assets/fonts/Gagarin.ttf; sourceTree = "<group>"; };
+		74317755230075E1001FE908 /* MSCExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSCExample-Bridging-Header.h"; sourceTree = "<group>"; };
+		74317756230075E1001FE908 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = test.swift; path = MSCExample/test.swift; sourceTree = "<group>"; };
+		8CF2887674C9AC59AE8E8896 /* Pods-MSCExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSCExample.release.xcconfig"; path = "Target Support Files/Pods-MSCExample/Pods-MSCExample.release.xcconfig"; sourceTree = "<group>"; };
+		A27C5EE362ADA7FDDF7084B8 /* Pods-MSCExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSCExample.debug.xcconfig"; path = "Target Support Files/Pods-MSCExample/Pods-MSCExample.debug.xcconfig"; sourceTree = "<group>"; };
+		EA307BCDF7D115D61BA89F9B /* libPods-MSCExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MSCExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -38,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE56B2EABAF8595F13EA6096 /* libPods-MSCExample.a in Frameworks */,
+				BC5FF9B7E0F2424B223766E6 /* libPods-MSCExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +58,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				74317756230075E1001FE908 /* test.swift */,
+				74317755230075E1001FE908 /* MSCExample-Bridging-Header.h */,
 			);
 			name = MSCExample;
 			sourceTree = "<group>";
@@ -63,18 +68,9 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				6B8240D8B98FA3DE6A7E0009 /* libPods-MSCExample.a */,
+				EA307BCDF7D115D61BA89F9B /* libPods-MSCExample.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		745BE2A8B3F00A918ED5ED40 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0DEF304E5C5242B473B67D9E /* Pods-MSCExample.debug.xcconfig */,
-				E5DEE2559A85720F0461E8AF /* Pods-MSCExample.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -91,8 +87,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				745BE2A8B3F00A918ED5ED40 /* Pods */,
-				8FAE1062FE7540BA9F1792BD /* Resources */,
+				D4FBABDB84E8D46ADB9AC5C7 /* Pods */,
+				BDF9F84EBCB34C988722A5A4 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -107,13 +103,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8FAE1062FE7540BA9F1792BD /* Resources */ = {
+		BDF9F84EBCB34C988722A5A4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BE21729B001F4189B6262472 /* Gagarin.ttf */,
-				27EEDAC51DB14B7882C87E14 /* Prisma.ttf */,
+				5F7760B3E1A94192BE4F4191 /* Gagarin.ttf */,
+				52AAE17A3868447E9A2181F9 /* Prisma.ttf */,
 			);
 			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
+		D4FBABDB84E8D46ADB9AC5C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A27C5EE362ADA7FDDF7084B8 /* Pods-MSCExample.debug.xcconfig */,
+				8CF2887674C9AC59AE8E8896 /* Pods-MSCExample.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,7 +129,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MSCExample" */;
 			buildPhases = (
-				5A021B147BDC9B2C5361F5CE /* [CP] Check Pods Manifest.lock */,
+				1295B77242F23FC54B2D195A /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -150,6 +156,7 @@
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 2F4Q43Z4QM;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -158,6 +165,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -178,8 +186,8 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				F1CA3995515E4237ACC2C04E /* Gagarin.ttf in Resources */,
-				85A433E6BB3B4B738277D964 /* Prisma.ttf in Resources */,
+				2086E575FDC644CFA0F38F6A /* Gagarin.ttf in Resources */,
+				9C0D27D2EB4341FBA4F65C69 /* Prisma.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +208,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		5A021B147BDC9B2C5361F5CE /* [CP] Check Pods Manifest.lock */ = {
+		1295B77242F23FC54B2D195A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -249,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				74317757230075E1001FE908 /* test.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,9 +279,10 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DEF304E5C5242B473B67D9E /* Pods-MSCExample.debug.xcconfig */;
+			baseConfigurationReference = A27C5EE362ADA7FDDF7084B8 /* Pods-MSCExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 2F4Q43Z4QM;
@@ -285,16 +295,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MSCExample;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_OBJC_BRIDGING_HEADER = "MSCExample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E5DEE2559A85720F0461E8AF /* Pods-MSCExample.release.xcconfig */;
+			baseConfigurationReference = 8CF2887674C9AC59AE8E8896 /* Pods-MSCExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2F4Q43Z4QM;
 				INFOPLIST_FILE = MSCExample/Info.plist;
@@ -306,7 +319,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MSCExample;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_OBJC_BRIDGING_HEADER = "MSCExample-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

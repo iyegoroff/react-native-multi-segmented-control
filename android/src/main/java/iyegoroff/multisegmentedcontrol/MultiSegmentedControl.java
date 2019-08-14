@@ -209,6 +209,8 @@ public class MultiSegmentedControl extends FrameLayout {
 
       updateToggleViews();
     }
+
+    setEnabled(mIsEnabled);
   }
 
   public void setValues(ReadableArray values) {

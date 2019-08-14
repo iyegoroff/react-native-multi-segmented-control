@@ -1,4 +1,5 @@
 PODS:
+  - ATHMultiSelectionSegmentedControl (0.2.2)
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
   - Folly (2018.10.22.00):
@@ -11,7 +12,6 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - MultiSelectSegmentedControl (1.2.1)
   - React (0.60.4):
     - React-Core (= 0.60.4)
     - React-DevSupport (= 0.60.4)
@@ -59,7 +59,7 @@ PODS:
     - React-jsi (= 0.60.4)
   - React-jsinspector (0.60.4)
   - react-native-multi-segmented-control (0.0.1):
-    - MultiSelectSegmentedControl (= 1.2.1)
+    - ATHMultiSelectionSegmentedControl (= 0.2.2)
     - React
   - React-RCTActionSheet (0.60.4):
     - React-Core (= 0.60.4)
@@ -114,8 +114,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ATHMultiSelectionSegmentedControl
     - boost-for-react-native
-    - MultiSelectSegmentedControl
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -166,11 +166,11 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  ATHMultiSelectionSegmentedControl: 0eaa37e53fe35677dccb27d8a4d66f6e8f167fe8
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
-  MultiSelectSegmentedControl: 495230a5a5fbb6edb03d541f173433922ef0c592
   React: ff7ee2ae5ee1c1d9ae2183b4111045b25294bb01
   React-Core: 8e0ea421cae5609d2562850f98421b15030476fa
   React-cxxreact: 326880209990151a7182a813311054e9772ba510
@@ -179,7 +179,7 @@ SPEC CHECKSUMS:
   React-jsi: 21d3153b1153fbf6510a92b6b11e33e725cb7432
   React-jsiexecutor: 7549641e48bafae7bfee3f3ea19bf4901639c5de
   React-jsinspector: 73f24a02fa684ed6a2b828ba116874a2191ded88
-  react-native-multi-segmented-control: 51a54bdefc2e43a9a66630396fc3eb284fb2e786
+  react-native-multi-segmented-control: 1223560b88e4f16acec5b86c64b35cf0821846a6
   React-RCTActionSheet: 9f71d7ae3e8fb10e08d162cbf14c621349dbfab3
   React-RCTAnimation: 981d8c95b0e30918a9832ccac32af83562a27fae
   React-RCTBlob: 21e73d1020a302a75fed30dbaee9f15287b80baa

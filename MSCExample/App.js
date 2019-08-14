@@ -11,6 +11,7 @@ import {
   StyleSheet,
   View,
   Text,
+  Platform,
 } from 'react-native';
 import { MultiSegmentedControl, SingleSegmentedControl } from 'react-native-multi-segmented-control'
 
@@ -21,34 +22,34 @@ const onChange = (event) => {
 class App extends React.Component {
   state = {
     selectedIndices: [1],
-    items: ['dog', 'cat', 'Fox', 'bee', 'zerg', 'pig'],
-    enabled: true
+    items: ['orange', 'apple', 'pear', 'lemon', 'lime'],
+    enabled: false
   }
 
   componentDidMount() {
-    // setTimeout(() => this.setState({
-    //   selectedIndices: [0, 2, 4]
-    // }), 5000)
+    setTimeout(() => this.setState({
+      selectedIndices: [0, 2, 4]
+    }), 5000)
 
-    // setTimeout(() => this.setState({
-    //   items: ['dog', 'cat', 'fox', 'bee', 'zerg', 'pig']
-    // }), 10000)
+    setTimeout(() => this.setState({
+      items: ['dog', 'cat', 'fox', 'bee', 'zerg', 'pig']
+    }), 10000)
 
-    // setTimeout(() => {
-    //   this.setState({ enabled: false })
+    setTimeout(() => {
+      this.setState({ enabled: false })
 
-    //   setTimeout(() => {
-    //     this.setState({ enabled: true })
+      setTimeout(() => {
+        this.setState({ enabled: true })
 
-    //     setTimeout(() => {
-    //       this.setState({ enabled: false })
+        setTimeout(() => {
+          this.setState({ enabled: false })
 
-    //       setTimeout(() => {
-    //         this.setState({ enabled: true })
-    //       }, 3000)
-    //     }, 3000)
-    //   }, 3000)
-    // }, 3000)
+          setTimeout(() => {
+            this.setState({ enabled: true })
+          }, 3000)
+        }, 3000)
+      }, 3000)
+    }, 3000)
   }
 
   render() {
@@ -57,7 +58,6 @@ class App extends React.Component {
     return (
       <View style={styles.container}>
         <MultiSegmentedControl
-          momentary={false}
           // tintColor={'red'}
           style={styles.segmented}
           values={items}
@@ -66,8 +66,7 @@ class App extends React.Component {
           maxSelected={3}
           minSelected={1}
           enabled={enabled}
-          hideSeparatorBetweenSelectedSegments={true}
-          // dividerColor={'green'}
+          dividerColor={'green'}
           textStyle={{
             fontWeight: 'normal',
             fontSize: 12,
@@ -83,17 +82,23 @@ class App extends React.Component {
           onChange={onChange}
           minSelected={1}
           // dividerColor={'lightgray'}
+          hideDivider={true}
           textStyle={{
             fontWeight: 'normal',
-            fontSize: 28,
+            fontSize: Platform.select({
+              ios: 27,
+              android: 28
+            }),
             color: 'yellow',
             fontFamily: 'Gagarin'
           }}
           selectedTextStyle={{
-            fontSize: 24,
-            fontWeight: 'bold',
+            fontSize: Platform.select({
+              ios: 19,
+              android: 22
+            }),
             color: 'green',
-            // fontFamily: 'Prisma'
+            fontFamily: 'Prisma'
           }}
         />
       </View>
@@ -113,7 +118,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginTop: 50,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    shadowRadius: 3,
+    shadowOpacity: 0.75,
+    shadowOffset: {
+      width: 3,
+      height: 3
+    },
+    shadowColor: 'black'
   }
 });
 

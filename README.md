@@ -1,3 +1,4 @@
+${PODS_ROOT}/../../node_modules/react-native-multi-segmented-control/ios/react-native-multi-segmented-control-Bridging-Header.h
 
 # react-native-multi-segmented-control
 
@@ -42,4 +43,3 @@ import RNMultiSegmentedControl from 'react-native-multi-segmented-control';
 // TODO: What to do with the module?
 RNMultiSegmentedControl;
 ```
-  

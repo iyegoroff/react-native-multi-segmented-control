@@ -19,7 +19,7 @@ export type NativeProps = ViewProps & {
   readonly momentary?: boolean
   readonly enabled?: boolean
   readonly onChange?: (event: NativeSyntheticEvent<NativeEvent>) => void
-  readonly hideSeparatorBetweenSelectedSegments?: boolean
+  readonly hideDivider?: boolean
   readonly isSingle?: boolean
   readonly maxSelected?: number
   readonly minSelected?: number

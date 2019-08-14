@@ -3,9 +3,7 @@ import invariant from 'ts-tiny-invariant'
 import { NativeProps, MSCMultiSegmentedControl } from './native-component'
 import { styles } from './styles'
 import { View, StyleSheet, ViewStyle } from 'react-native'
-import { controlKey } from './control-key'
 import { processTextStyle } from './process-text-style'
-import { processBorderRadius } from './process-border-radius';
 
 type OmittedProps =
   | 'isSingle'
@@ -59,14 +57,14 @@ export class MultiSegmentedControl extends React.PureComponent<MultiSegmentedCon
       <View style={[styles.container, rest]}>
         <MSCMultiSegmentedControl
           {...restProps}
-          key={controlKey(values)}
+          key={values.join()}
           values={values}
           selectedIndices={selectedIndices}
           minSelected={minSelected}
           maxSelected={maxSelected}
           enabled={enabled}
           style={styles.control}
-          borderRadius={processBorderRadius(borderRadius)}
+          borderRadius={borderRadius}
           backgroundColor={backgroundColor}
           textStyle={processTextStyle(textStyle)}
           selectedTextStyle={processTextStyle(selectedTextStyle)}

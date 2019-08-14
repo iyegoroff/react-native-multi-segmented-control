@@ -45,3 +45,4 @@ buck-out/
 *.keystore
 
 dist
+MSCExample_old
