@@ -8,6 +8,7 @@ import { processTextStyle } from './process-text-style'
 type OmittedProps =
   | 'isSingle'
   | 'borderRadius'
+  | 'borderWidth'
   | 'backgroundColor'
   | 'elevation'
 
@@ -48,6 +49,7 @@ export class MultiSegmentedControl extends React.PureComponent<MultiSegmentedCon
 
     const {
       borderRadius,
+      borderWidth,
       backgroundColor,
       elevation,
       ...rest
@@ -65,6 +67,7 @@ export class MultiSegmentedControl extends React.PureComponent<MultiSegmentedCon
           enabled={enabled}
           style={styles.control}
           borderRadius={borderRadius}
+          borderWidth={borderWidth}
           backgroundColor={backgroundColor}
           textStyle={processTextStyle(textStyle)}
           selectedTextStyle={processTextStyle(selectedTextStyle)}

@@ -6,5 +6,5 @@ export const processTextStyle = (style: StyleProp<TextStyle>) => {
   return {
     ...rest,
     color: color !== undefined ? processColor(color) : undefined
-  }
+  } as TextStyle
 }

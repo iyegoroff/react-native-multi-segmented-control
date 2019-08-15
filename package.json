@@ -47,7 +47,8 @@
     "MSCExample",
     "tslint.json",
     "*.md",
-    "*.podspec"
+    "*.podspec",
+    "LICENSE"
   ],
   "dependencies": {
     "ts-tiny-invariant": "0.0.2"

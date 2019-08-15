@@ -43,6 +43,10 @@ class MultiSegmentedControl: MultiSelectionSegmentedControl, MultiSelectionSegme
   @objc func setBorderRadius(_ borderRadius: CGFloat) {
     cornerRadius = borderRadius
   }
+  
+  @objc func setBorderWidth(_ width: CGFloat) {
+    borderWidth = width
+  }
 
   @objc func setSelectedTextStyle(_ style: Dictionary<String, NSObject>) {
     selectedTextAttrs = MultiSegmentedControl.textAttributes(style)
@@ -65,6 +69,12 @@ class MultiSegmentedControl: MultiSelectionSegmentedControl, MultiSelectionSegme
   }
 
   @objc var onChange: RCTBubblingEventBlock?
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    
+    updateButtons()
+  }
   
   func multiSelectionSegmentedControl(
     _ control: MultiSelectionSegmentedControl,
@@ -90,7 +100,7 @@ class MultiSegmentedControl: MultiSelectionSegmentedControl, MultiSelectionSegme
         selectedIndices = [changedIndex]
 
       } else {
-        updateButtons()
+        selectedIndices = indices
       }
       
       onChange?([
@@ -112,12 +122,13 @@ class MultiSegmentedControl: MultiSelectionSegmentedControl, MultiSelectionSegme
       if let attrs = selected ? selectedTextAttrs : textAttrs, let label = button.titleLabel {
         label.font = attrs.0
         
-        if let color = attrs.1 {
-          button.setTitleColor(color, for: .normal)
-        }
+        button.setTitleColor(
+          attrs.1 ?? (selected ? (backgroundColor ?? UIColor.white) : tintColor),
+          for: .normal
+        )
       }
       
-      button.layer.borderWidth = hideDivider ? 0 : 0.5
+      button.layer.borderWidth = hideDivider ? 0 : borderWidth / 2.0
     }
   }
   

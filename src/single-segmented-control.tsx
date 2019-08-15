@@ -11,6 +11,7 @@ type OmittedProps =
   | 'hideSeparatorBetweenSelectedSegments'
   | 'maxSelected'
   | 'borderRadius'
+  | 'borderWidth'
   | 'backgroundColor'
   | 'elevation'
 
@@ -48,6 +49,7 @@ export class SingleSegmentedControl extends React.PureComponent<SingleSegmentedC
 
     const {
       borderRadius,
+      borderWidth,
       backgroundColor,
       elevation,
       ...rest
@@ -65,6 +67,7 @@ export class SingleSegmentedControl extends React.PureComponent<SingleSegmentedC
           enabled={enabled}
           style={styles.control}
           borderRadius={borderRadius}
+          borderWidth={borderWidth}
           backgroundColor={backgroundColor}
           textStyle={processTextStyle(textStyle)}
           selectedTextStyle={processTextStyle(selectedTextStyle)}

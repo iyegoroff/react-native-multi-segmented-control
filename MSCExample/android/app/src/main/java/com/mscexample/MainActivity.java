@@ -1,4 +1,4 @@
-package com.mscexamplej;
+package com.mscexample;
 
 import com.facebook.react.ReactActivity;
 
