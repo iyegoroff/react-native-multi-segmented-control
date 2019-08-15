@@ -1,4 +1,4 @@
-package com.mscexample;
+package com.mscexamplej;
 
 import android.app.Application;
 import android.util.Log;
