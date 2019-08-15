@@ -74,7 +74,6 @@ class App extends React.Component {
           }}
         />
         <SingleSegmentedControl
-          momentary={false}
           tintColor={'red'}
           style={styles.segmented}
           values={items}

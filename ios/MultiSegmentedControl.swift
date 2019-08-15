@@ -73,7 +73,7 @@ class MultiSegmentedControl: MultiSelectionSegmentedControl, MultiSelectionSegme
     let change = Set.init(indices).symmetricDifference(prevSelectedIndices)
     let selectedAmount = indices.count
 
-    if let changedIndex = change.first, let cb = onChange {
+    if let changedIndex = change.first {
       if (maxSelected != 0 && selectedAmount > maxSelected) {
         selectedIndices = indices.filter({ $0 != changedIndex })
         
@@ -93,7 +93,7 @@ class MultiSegmentedControl: MultiSelectionSegmentedControl, MultiSelectionSegme
         updateButtons()
       }
       
-      cb([
+      onChange?([
         "selectedIndices": selectedSegmentIndices,
         "selectedValues": values.enumerated()
           .filter({ selectedSegmentIndices.contains($0.offset) })
