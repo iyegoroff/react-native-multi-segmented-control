@@ -8,7 +8,6 @@ import { processTextStyle } from './process-text-style'
 type OmittedProps =
   | 'isSingle'
   | 'selectedIndices'
-  | 'hideSeparatorBetweenSelectedSegments'
   | 'maxSelected'
   | 'borderRadius'
   | 'borderWidth'
@@ -30,6 +29,10 @@ export class SingleSegmentedControl extends React.PureComponent<SingleSegmentedC
       style,
       textStyle,
       selectedTextStyle = textStyle,
+      tintColor,
+      onChange,
+      hideDivider,
+      dividerColor,
       ...restProps
     } = this.props
 
@@ -56,9 +59,15 @@ export class SingleSegmentedControl extends React.PureComponent<SingleSegmentedC
     } = StyleSheet.flatten(style) || {} as ViewStyle
 
     return (
-      <View style={[styles.container, rest]}>
+      <View
+        {...restProps}
+        style={[styles.container, rest]}
+      >
         <MSCMultiSegmentedControl
-          {...restProps}
+          tintColor={tintColor}
+          onChange={onChange}
+          hideDivider={hideDivider}
+          dividerColor={dividerColor}
           values={values}
           key={values.join()}
           minSelected={minSelected}

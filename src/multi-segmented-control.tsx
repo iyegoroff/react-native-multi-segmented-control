@@ -26,6 +26,10 @@ export class MultiSegmentedControl extends React.PureComponent<MultiSegmentedCon
       style,
       textStyle,
       selectedTextStyle = textStyle,
+      tintColor,
+      onChange,
+      hideDivider,
+      dividerColor,
       ...restProps
     } = this.props
 
@@ -56,9 +60,15 @@ export class MultiSegmentedControl extends React.PureComponent<MultiSegmentedCon
     } = StyleSheet.flatten(style) || {} as ViewStyle
 
     return (
-      <View style={[styles.container, rest]}>
+      <View
+        {...restProps}
+        style={[styles.container, rest]}
+      >
         <MSCMultiSegmentedControl
-          {...restProps}
+          tintColor={tintColor}
+          onChange={onChange}
+          hideDivider={hideDivider}
+          dividerColor={dividerColor}
           key={values.join()}
           values={values}
           selectedIndices={selectedIndices}

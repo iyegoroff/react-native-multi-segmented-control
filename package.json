@@ -33,11 +33,18 @@
   "scripts": {
     "build": "rm -rf dist && tsc -p ./src",
     "watch": "tsc -p ./src -w",
-    "lint": "npm run lint:ts && npm run lint:kotlin",
+    "lint": "npm run lint:ts && npm run lint:kotlin && npm run lint:swift",
     "lint:ts": "tslint --fix -p ./src && tslint --fix -p ./MSCExample/src",
     "lint:kotlin": "cd MSCExample/android && ./gradlew ktlintMainSourceSetFormat",
-    "build:all": "npm run lint && npm run build",
-    "preversion": "npm run build:all",
+    "lint:swift": "cd ios && ../MSCExample/ios/Pods/SwiftLint/swiftlint autocorrect && ../MSCExample/ios/Pods/SwiftLint/swiftlint",
+    "ci:build": "cd MSCExample && npm i",
+    "ci:lint": "npm run ci:lint:ts && npm run ci:lint:kotlin && npm run ci:lint:swift",
+    "ci:lint:ts": "tslint -p ./src && tslint -p ./MSCExample/src",
+    "ci:lint:kotlin": "cd MSCExample/android && ./gradlew ktlintMainSourceSetCheck",
+    "ci:lint:swift": "cd ios && ../MSCExample/ios/Pods/SwiftLint/swiftlint",
+    "ci:compile:android": "cd MSCExample/android && ./gradlew compileDebugSources",
+    "ci:compile:ios": "cd MSCExample/ios && xcodebuild CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=\"NO\" CODE_SIGN_ENTITLEMENTS=\"\" CODE_SIGNING_ALLOWED=\"NO\" -workspace MSCExample.xcworkspace -configuration Debug -scheme MSCExample test",
+    "preversion": "npm run lint && npm run build",
     "postversion": "git push && git push --tags"
   },
   "files": [
