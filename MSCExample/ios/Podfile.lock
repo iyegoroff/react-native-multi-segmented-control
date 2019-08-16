@@ -83,6 +83,7 @@ PODS:
     - React-Core (= 0.60.5)
   - React-RCTWebSocket (0.60.5):
     - React-Core (= 0.60.5)
+  - SwiftLint (0.33.0)
   - yoga (0.60.5.React)
 
 DEPENDENCIES:
@@ -107,12 +108,14 @@ DEPENDENCIES:
   - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-RCTWebSocket (from `../node_modules/react-native/Libraries/WebSocket`)
+  - SwiftLint
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ATHMultiSelectionSegmentedControl
     - boost-for-react-native
+    - SwiftLint
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -184,8 +187,9 @@ SPEC CHECKSUMS:
   React-RCTText: b074d89033583d4f2eb5faf7ea2db3a13c7553a2
   React-RCTVibration: 2105b2e0e2b66a6408fc69a46c8a7fb5b2fdade0
   React-RCTWebSocket: cd932a16b7214898b6b7f788c8bddb3637246ac4
+  SwiftLint: fed9c66336e41fc74dc48a73678380718f0c8b0e
   yoga: 312528f5bbbba37b4dcea5ef00e8b4033fdd9411
 
-PODFILE CHECKSUM: 04980f6262e23fa0f16b0a793dee2466cb994902
+PODFILE CHECKSUM: 10e8f38e173569112ac8e91f493734456d92fc6c
 
 COCOAPODS: 1.7.5

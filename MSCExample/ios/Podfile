@@ -29,5 +29,7 @@ target 'MSCExample' do
 
   pod 'react-native-multi-segmented-control', :path => '../../'
 
+  pod 'SwiftLint'
+
   use_native_modules!
 end

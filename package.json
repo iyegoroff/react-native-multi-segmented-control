@@ -33,8 +33,9 @@
   "scripts": {
     "build": "rm -rf dist && tsc -p ./src",
     "watch": "tsc -p ./src -w",
-    "lint": "tslint --fix -p ./src && npm run lint:examples",
-    "lint:examples": "tslint --fix -p ./MSCExample/src",
+    "lint": "npm run lint:ts && npm run lint:kotlin",
+    "lint:ts": "tslint --fix -p ./src && tslint --fix -p ./MSCExample/src",
+    "lint:kotlin": "cd MSCExample/android && ./gradlew ktlintMainSourceSetFormat",
     "build:all": "npm run lint && npm run build",
     "preversion": "npm run build:all",
     "postversion": "git push && git push --tags"

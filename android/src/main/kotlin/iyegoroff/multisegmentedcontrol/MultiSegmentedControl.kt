@@ -121,33 +121,34 @@ class MultiSegmentedControl(context: Context) : FrameLayout(context) {
   private fun updateToggleViews() {
     val toggles = toggleButtonLayout.toggles
     val layout = ReflectUtils.getFieldValue<LinearLayout>(toggleButtonLayout, "linearLayout")
-    val textColor = textColor ?: (if (selectedColorSet) toggleButtonLayout.selectedColor else Color.BLACK)
+    val textColor = textColor ?: (
+      if (selectedColorSet) toggleButtonLayout.selectedColor else Color.BLACK
+    )
     val backgroundColor = backgroundColor ?: Color.WHITE
     val selectedTextColor = selectedTextColor ?: backgroundColor
     val selectedBackgroundColor = toggleButtonLayout.selectedColor
     val textFontSize = textFontSize ?: 16.0f
     val selectedTextFontSize = selectedTextFontSize ?: 16.0f
     val textTypeface = typeface(textFontFamily, textFontWeight, textFontStyle)
-    val selectedTextTypeface = typeface(selectedTextFontFamily, selectedTextFontWeight, selectedTextFontStyle)
+    val selectedTextTypeface = typeface(
+      selectedTextFontFamily,
+      selectedTextFontWeight,
+      selectedTextFontStyle
+    )
 
     if (layout != null) {
       for (i in toggles.indices) {
         val toggle = toggles[i]
         val toggleView = layout.findViewById<View>(toggle.id)
         val textView = toggleView.findViewById<TextView>(android.R.id.text1)
+        val selected = toggle.isSelected
 
-        if (toggle.isSelected) {
-          toggleView.background = ColorDrawable(selectedBackgroundColor)
-          textView.setTextColor(selectedTextColor)
-          textView.textSize = selectedTextFontSize
-          textView.typeface = selectedTextTypeface
-
-        } else {
-          toggleView.background = ColorDrawable(backgroundColor)
-          textView.setTextColor(textColor)
-          textView.textSize = textFontSize
-          textView.typeface = textTypeface
-        }
+        toggleView.background = ColorDrawable(
+          if (selected) selectedBackgroundColor else backgroundColor
+        )
+        textView.setTextColor(if (selected) selectedTextColor else textColor)
+        textView.textSize = if (selected) selectedTextFontSize else textFontSize
+        textView.typeface = if (selected) selectedTextTypeface else textTypeface
       }
     }
   }
@@ -159,7 +160,9 @@ class MultiSegmentedControl(context: Context) : FrameLayout(context) {
     if (layout != null) {
       for (i in toggles.indices) {
         val toggle = toggles[i]
-        val textView = layout.findViewById<View>(toggle.id).findViewById<TextView>(android.R.id.text1)
+        val textView = layout
+          .findViewById<View>(toggle.id)
+          .findViewById<TextView>(android.R.id.text1)
         textView.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
         textView.gravity = Gravity.CENTER
       }
@@ -290,7 +293,8 @@ class MultiSegmentedControl(context: Context) : FrameLayout(context) {
   fun setSelectedTextStyle(style: ReadableMap) {
     selectedTextColor = if (style.hasKey("color")) style.getInt("color") else null
     selectedTextFontFamily = if (style.hasKey("fontFamily")) style.getString("fontFamily") else null
-    selectedTextFontSize = if (style.hasKey("fontSize")) style.getDouble("fontSize").toFloat() else null
+    selectedTextFontSize =
+      if (style.hasKey("fontSize")) style.getDouble("fontSize").toFloat() else null
     selectedTextFontWeight = if (style.hasKey("fontWeight")) style.getString("fontWeight") else null
     selectedTextFontStyle = if (style.hasKey("fontStyle")) style.getString("fontStyle") else null
 
