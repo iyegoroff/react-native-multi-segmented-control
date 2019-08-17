@@ -43,7 +43,7 @@
     "ci:lint:kotlin": "cd MSCExample/android && ./gradlew ktlintMainSourceSetCheck",
     "ci:lint:swift": "cd ios && ../MSCExample/ios/Pods/SwiftLint/swiftlint",
     "ci:compile:android": "cd MSCExample/android && ./gradlew compileDebugSources",
-    "ci:compile:ios": "cd MSCExample/ios && xcodebuild CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=\"NO\" CODE_SIGN_ENTITLEMENTS=\"\" CODE_SIGNING_ALLOWED=\"NO\" -workspace MSCExample.xcworkspace -configuration Debug -scheme MSCExample test",
+    "ci:compile:ios": "cd MSCExample/ios && export RCT_NO_LAUNCH_PACKAGER=\"true\" && xcodebuild CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=\"NO\" CODE_SIGN_ENTITLEMENTS=\"\" CODE_SIGNING_ALLOWED=\"NO\" -workspace MSCExample.xcworkspace -configuration Debug -scheme MSCExample test",
     "preversion": "npm run lint && npm run build",
     "postversion": "git push && git push --tags"
   },

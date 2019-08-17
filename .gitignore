@@ -45,5 +45,5 @@ buck-out/
 *.keystore
 
 dist
-.ionide
+.ionide/
 *.tgz
