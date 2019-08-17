@@ -37,7 +37,7 @@
     "lint:ts": "tslint --fix -p ./src && tslint --fix -p ./MSCExample/src",
     "lint:kotlin": "cd MSCExample/android && ./gradlew ktlintMainSourceSetFormat",
     "lint:swift": "cd ios && ../MSCExample/ios/Pods/SwiftLint/swiftlint autocorrect && ../MSCExample/ios/Pods/SwiftLint/swiftlint",
-    "ci:build": "npm ci && npm run build && cd MSCExample && npm i --ignore-scripts && npm run build",
+    "ci:build": "cd MSCExample && npm i",
     "ci:lint": "npm run ci:lint:ts && npm run ci:lint:kotlin && npm run ci:lint:swift",
     "ci:lint:ts": "tslint -p ./src && tslint -p ./MSCExample/src",
     "ci:lint:kotlin": "cd MSCExample/android && ./gradlew ktlintMainSourceSetCheck",
