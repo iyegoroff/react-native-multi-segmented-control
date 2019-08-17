@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/iyegoroff/react-native-multi-segmented-control.git"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "peerDependencies": {
     "@babel/runtime": "*",
     "react": "*",
