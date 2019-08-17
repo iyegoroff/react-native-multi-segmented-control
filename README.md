@@ -84,7 +84,7 @@ import { MultiSegmentedControl } from 'react-native-multi-segmented-control'
 
 export const Control = () => (
   <MultiSegmentedControl
-    style={{ height: 55, widht: '100%' }}
+    style={{ height: 55, width: '100%' }}
     values={['cat', 'dog', 'fox', 'pig', 'cow']}
     onChange={({ nativeEvent }) => console.warn(nativeEvent.changedIndex)}
     selectedIndices={[1, 2]}
