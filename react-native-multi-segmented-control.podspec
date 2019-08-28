@@ -18,4 +18,3 @@ Pod::Spec.new do |s|
   s.dependency 'React'
   s.dependency 'ATHMultiSelectionSegmentedControl', '0.2.2'
 end
-

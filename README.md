@@ -1,10 +1,12 @@
+<!-- Bootstrapped with make-react-native-package v0.0.0 -->
+
 # react-native-multi-segmented-control
 [![npm version](https://badge.fury.io/js/react-native-multi-segmented-control.svg)](https://badge.fury.io/js/react-native-multi-segmented-control)
 [![CircleCI](https://circleci.com/gh/iyegoroff/react-native-multi-segmented-control.svg?style=svg)](https://circleci.com/gh/iyegoroff/react-native-multi-segmented-control)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/standard/standard)
 [![Dependency Status](https://david-dm.org/iyegoroff/react-native-multi-segmented-control.svg)](https://david-dm.org/iyegoroff/react-native-multi-segmented-control)
 [![devDependencies Status](https://david-dm.org/iyegoroff/react-native-multi-segmented-control/dev-status.svg)](https://david-dm.org/iyegoroff/react-native-multi-segmented-control?type=dev)
-[![typings included](https://img.shields.io/badge/typings-included-brightgreen.svg?t=1495378566925)](src/typings/index.d.ts)
+[![typings included](https://img.shields.io/badge/typings-included-brightgreen.svg?t=1495378566925)](package.json)
 [![npm](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/react-native-multi-segmented-control)
 
 Multi segmented control for iOS & Android
@@ -34,7 +36,7 @@ Multi segmented control for iOS & Android
   buildscript {
     ext {
       ...
-  +   kotlinVersion = "1.3.41"
+  +   kotlinVersion = "1.3.50"
     }
   ...
 

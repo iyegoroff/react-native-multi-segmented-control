@@ -1,14 +1,33 @@
 {
+  "name": "react-native-multi-segmented-control",
+  "version": "0.0.3",
   "description": "Multi segmented control for iOS & Android",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "keywords": [
     "react-native",
     "segmented-control"
   ],
-  "license": "MIT",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "name": "react-native-multi-segmented-control",
   "author": "iyegoroff <iegoroff@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "init:package": "cd example && npm i && npm run install:pods",
+    "build": "rm -rf dist && tsc -p ./src",
+    "watch": "npm run build -- -w",
+    "lint": "npm run lint:ts && npm run lint:kotlin && npm run lint:swift",
+    "lint:ts": "tslint --fix -p ./src && tslint --fix -p ./example/src",
+    "lint:kotlin": "cd example/android && ./gradlew ktlintMainSourceSetFormat",
+    "lint:swift": "cd ios && ../example/ios/Pods/SwiftLint/swiftlint autocorrect && ../example/ios/Pods/SwiftLint/swiftlint",
+    "ci:build": "cd example && npm i",
+    "ci:lint": "npm run ci:lint:ts && npm run ci:lint:kotlin && npm run ci:lint:swift",
+    "ci:lint:ts": "tslint -p ./src && tslint -p ./example/src",
+    "ci:lint:kotlin": "cd example/android && ./gradlew ktlintMainSourceSetCheck",
+    "ci:lint:swift": "cd ios && ../example/ios/Pods/SwiftLint/swiftlint",
+    "ci:compile:android": "cd example/android && ./gradlew compileDebugSources",
+    "ci:compile:ios": "cd example/ios && export RCT_NO_LAUNCH_PACKAGER=\"true\" && export RCT_NO_BUNDLE=\"true\" && xcodebuild CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=\"NO\" CODE_SIGN_ENTITLEMENTS=\"\" CODE_SIGNING_ALLOWED=\"NO\" -workspace ReactNativeMultiSegmentedControlExample.xcworkspace -configuration Debug -scheme ReactNativeMultiSegmentedControlExample test",
+    "preversion": "npm run lint && npm run build",
+    "postversion": "git push && git push --tags"
+  },
   "bugs": {
     "url": "https://github.com/iyegoroff/react-native-multi-segmented-control/issues"
   },
@@ -17,42 +36,24 @@
     "type": "git",
     "url": "git+https://github.com/iyegoroff/react-native-multi-segmented-control.git"
   },
-  "version": "0.0.3",
   "peerDependencies": {
     "@babel/runtime": "*",
     "react": "*",
     "react-native": "*"
   },
   "devDependencies": {
-    "@types/react-native": "^0.60.3",
-    "tslint": "^5.18.0",
-    "tslint-config-standard": "^8.0.1",
-    "tslint-react": "^4.0.0",
-    "typescript": "^3.5.3"
-  },
-  "scripts": {
-    "build": "rm -rf dist && tsc -p ./src",
-    "watch": "tsc -p ./src -w",
-    "lint": "npm run lint:ts && npm run lint:kotlin && npm run lint:swift",
-    "lint:ts": "tslint --fix -p ./src && tslint --fix -p ./MSCExample/src",
-    "lint:kotlin": "cd MSCExample/android && ./gradlew ktlintMainSourceSetFormat",
-    "lint:swift": "cd ios && ../MSCExample/ios/Pods/SwiftLint/swiftlint autocorrect && ../MSCExample/ios/Pods/SwiftLint/swiftlint",
-    "ci:build": "cd MSCExample && npm i",
-    "ci:lint": "npm run ci:lint:ts && npm run ci:lint:kotlin && npm run ci:lint:swift",
-    "ci:lint:ts": "tslint -p ./src && tslint -p ./MSCExample/src",
-    "ci:lint:kotlin": "cd MSCExample/android && ./gradlew ktlintMainSourceSetCheck",
-    "ci:lint:swift": "cd ios && ../MSCExample/ios/Pods/SwiftLint/swiftlint",
-    "ci:compile:android": "cd MSCExample/android && ./gradlew compileDebugSources",
-    "ci:compile:ios": "cd MSCExample/ios && export RCT_NO_LAUNCH_PACKAGER=\"true\" && export RCT_NO_BUNDLE=\"true\" && xcodebuild CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=\"NO\" CODE_SIGN_ENTITLEMENTS=\"\" CODE_SIGNING_ALLOWED=\"NO\" -workspace MSCExample.xcworkspace -configuration Debug -scheme MSCExample test",
-    "preversion": "npm run lint && npm run build",
-    "postversion": "git push && git push --tags"
+    "@types/react-native": "0.60.8",
+    "tslint": "5.19.0",
+    "tslint-config-standard": "8.0.1",
+    "tslint-react": "4.0.0",
+    "typescript": "3.5.3"
   },
   "files": [
     "android",
     "ios",
     "src",
     "dist",
-    "MSCExample",
+    "example",
     "tslint.json",
     "*.md",
     "*.podspec",
