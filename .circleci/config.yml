@@ -32,7 +32,7 @@ jobs:
 
       - run: sudo gem install cocoapods
       - run: npm run ci:build
-      - run: cd MSCExample && npm run install:pods
+      - run: cd example && npm run install:pods
       - run: npm run ci:lint:swift
       - run: npm run ci:compile:ios
 
