@@ -1,6 +1,6 @@
 {
   "name": "react-native-multi-segmented-control",
-  "version": "0.0.8",
+  "version": "0.0.7",
   "description": "Multi segmented control for iOS & Android",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -25,7 +25,7 @@
     "ci:lint:swift": "cd ios && ../example/ios/Pods/SwiftLint/swiftlint",
     "ci:compile:android": "cd example/android && ./gradlew compileDebugSources",
     "ci:compile:ios": "cd example/ios && export RCT_NO_LAUNCH_PACKAGER=\"true\" && export RCT_NO_BUNDLE=\"true\" && xcodebuild CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=\"NO\" CODE_SIGN_ENTITLEMENTS=\"\" CODE_SIGNING_ALLOWED=\"NO\" -workspace ReactNativeMultiSegmentedControlExample.xcworkspace -configuration Debug -scheme ReactNativeMultiSegmentedControlExample test",
-    "preversion": "npm run build",
+    "preversion": "npm run lint && npm run build",
     "postversion": "git push && git push --tags"
   },
   "bugs": {

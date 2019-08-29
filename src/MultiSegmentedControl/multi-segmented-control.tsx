@@ -22,7 +22,12 @@ const RefComponent = (
     values = [],
     selectedIndices = [],
     minSelected = 0,
-    maxSelected = 0, enabled = true, style, textStyle, selectedTextStyle = textStyle, tintColor, onChange,
+    maxSelected = 0,
+    enabled = true,
+    style, textStyle,
+    selectedTextStyle = textStyle,
+    tintColor,
+    onChange,
     hideDivider,
     dividerColor,
     ...restProps
