@@ -64,7 +64,7 @@ class MultiSegmentedControlManager : ViewGroupManager<MultiSegmentedControl>() {
   }
 
   @ReactProp(name = "borderRadius")
-  fun setBorderRadius(view: MultiSegmentedControl, borderRadius: Float) {
+  override fun setBorderRadius(view: MultiSegmentedControl, borderRadius: Float) {
     view.setBorderRadius(borderRadius)
   }
 
